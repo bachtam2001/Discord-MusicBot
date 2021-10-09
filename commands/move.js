@@ -25,19 +25,25 @@ module.exports = {
         "❌ | **Nothing is playing right now...**"
       );
     if (!args[0] || !args[1])
-      return client.sendTime(message.channel, "❌ | **Invalid arguments.**");
+      return client.sendTime(
+        message.channel,
+        "❌ | **tham số không chính xác.**"
+      );
 
     // Check if (args[0] - 1) is a valid index
     let trackNum = parseInt(args[0] - 1);
     if (trackNum < 1 || trackNum > player.queue.length - 1) {
-      return client.sendTime(message.channel, "❌ | **Invalid track number.**");
+      return client.sendTime(
+        message.channel,
+        "❌ | **Vị trí nguồn không hợp lệ.**"
+      );
     }
 
     let dest = parseInt(args[1] - 1);
     if (dest < 1 || dest > player.queue.length - 1) {
       return client.sendTime(
         message.channel,
-        "❌ | **Invalid track destination.**"
+        "❌ | **Vị trí đích không hợp lệ.**"
       );
     }
 
@@ -49,7 +55,7 @@ module.exports = {
       message.channel,
       "✅ | **" +
         track.title +
-        "** has been moved to position " +
+        "** đã được di chuyển tới vị trí " +
         (dest + 1) +
         "."
     );
@@ -58,18 +64,18 @@ module.exports = {
   SlashCommand: {
     options: [
       {
-        name: "track",
+        name: "vị trí bài hát",
         value: "track",
         type: 4,
         required: true,
-        description: "Track to move.",
+        description: "Vị trí bài hát muốn chuyển.",
       },
       {
-        name: "position",
+        name: "vị trí muốn chuyển đến",
         value: "track2",
         type: 4,
         required: true,
-        description: "Moves selected track to the specified position.",
+        description: "Chuyển bài hát đến vị trí nhất định.",
       },
     ],
     /**
@@ -87,22 +93,22 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Không có gì được phát...**"
         );
       if (!args[0].value || !args[1].value)
-        return client.sendTime(interaction, "❌ | **Invalid track number.**");
+        return client.sendTime(interaction, "❌ | **Vị trí không hợp lệ .**");
 
       // Check if (args[0] - 1) is a valid index
       let trackNum = parseInt(args[0].value - 1);
       if (trackNum < 1 || trackNum > player.queue.length - 1) {
-        return client.sendTime(interaction, "❌ | **Invalid track number.**");
+        return client.sendTime(interaction, "❌ | **Vị trí không hợp lệ .**");
       }
 
       let dest = parseInt(args[1].value - 1);
       if (dest < 1 || dest > player.queue.length - 1) {
         return client.sendTime(
           interaction,
-          "❌ | **Invalid track destination.**"
+          "❌ | **Vị trí đích không hợp lệ.**"
         );
       }
 
@@ -112,11 +118,7 @@ module.exports = {
       player.queue.splice(dest, 0, track);
       client.sendTime(
         interaction,
-        "✅ | **" +
-          track.title +
-          "** has been moved to position " +
-          (dest + 1) +
-          "."
+        "✅ | **" + track.title + "** đã được di chuyển đến " + (dest + 1) + "."
       );
     },
   },

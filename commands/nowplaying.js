@@ -22,17 +22,17 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Đang rảnh, có nhạc đâu mà phát...**"
       );
 
     let song = player.queue.current;
     let QueueEmbed = new MessageEmbed()
-      .setAuthor("Currently playing", client.botconfig.IconURL)
+      .setAuthor("Đang phát", client.botconfig.IconURL)
       .setColor(client.botconfig.EmbedColor)
       .setDescription(`[${song.title}](${song.uri})`)
-      .addField("Requested by", `${song.requester}`, true)
+      .addField("Được thêm bởi", `${song.requester}`, true)
       .addField(
-        "Duration",
+        "Thời lượng",
         `${
           client.ProgressBar(player.position, player.queue.current.duration, 15)
             .Bar
@@ -59,17 +59,17 @@ module.exports = {
       if (!player.queue.current)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Đang rảnh, có nhạc đâu mà phát...**"
         );
 
       let song = player.queue.current;
       let QueueEmbed = new MessageEmbed()
-        .setAuthor("Currently playing", client.botconfig.IconURL)
+        .setAuthor("Đang phát", client.botconfig.IconURL)
         .setColor(client.botconfig.EmbedColor)
         .setDescription(`[${song.title}](${song.uri})`)
-        .addField("Requested by", `${song.requester}`, true)
+        .addField("Được thêm bởi", `${song.requester}`, true)
         .addField(
-          "Duration",
+          "Thời lượng",
           `${
             client.ProgressBar(
               player.position,
