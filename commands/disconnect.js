@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "disconnect",
-  description: "Stop the music and leave the voice channel",
+  description: "Dừng phát nhạc và rời khỏi channel",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -21,14 +21,14 @@ module.exports = {
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel use this command**"
+        "❌ | **Phải vào kênh thoại nếu muốn đuổi t ra**"
       );
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Không có gì để phát...**"
       );
-    await client.sendTime(message.channel, ":notes: | **Disconnected!**");
+    await client.sendTime(message.channel, ":notes: | **Đã ngắt kết nối!**");
     await message.react("✅");
     player.destroy();
   },
@@ -48,7 +48,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Join vào kênh thoại đi rồi hẳn đuổi t ra.**"
         );
       if (
         guild.me.voice.channel &&
@@ -56,17 +56,14 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          `❌ | **You must be in ${guild.me.voice.channel} to use this command.**`
+          `❌ | **Cần phải vào ${guild.me.voice.channel} để sử dụng lệnh này.**`
         );
 
       let player = await client.Manager.get(interaction.guild_id);
       if (!player)
-        return client.sendTime(
-          interaction,
-          "❌ | **Nothing is playing right now...**"
-        );
+        return client.sendTime(interaction, "❌ | **Không có gì để phát...**");
       player.destroy();
-      client.sendTime(interaction, ":notes: | **Disconnected!**");
+      client.sendTime(interaction, ":notes: | **Đã ngắt kết nối!**");
     },
   },
 };

@@ -22,7 +22,7 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Hiện đang không phát nhạc...**"
       );
     if (!args[0])
       return client.sendTime(message.channel, "❌ | **Invalid arguments.**");
@@ -68,7 +68,7 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Hiện đang không phát nhạc...**"
         );
       if (!args[0].value)
         return client.sendTime(interaction, "❌ | **Invalid track number.**");

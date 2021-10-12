@@ -23,7 +23,7 @@ module.exports = {
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to play something!**"
+        "❌ | **Bạn phải trong kênh thoại để gọi nhạc!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -31,7 +31,7 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Bạn phải cùng kênh thoại với bot để sử dụng câu lệnh này!**"
       );
 
     let SearchString = args.join(" ");
@@ -73,7 +73,7 @@ module.exports = {
           (s) =>
             `\`${s.index + 1}.\` [${s.title}](${
               s.uri
-            }) \nDuration: \`${prettyMilliseconds(s.duration, {
+            }) \nThời lượng: \`${prettyMilliseconds(s.duration, {
               colonNotation: true,
             })}\``
         );
@@ -136,7 +136,7 @@ module.exports = {
       SongAddedEmbed.setDescription(`[${Song.title}](${Song.uri})`);
       SongAddedEmbed.addField("Author", `${Song.author}`, true);
       SongAddedEmbed.addField(
-        "Duration",
+        "Thời lượng",
         `\`${prettyMilliseconds(player.queue.current.duration, {
           colonNotation: true,
         })}\``,
@@ -177,7 +177,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Bạn phải trong một kênh thoại để sử dụng câu lệnh này.**"
         );
       if (
         guild.me.voice.channel &&
@@ -185,7 +185,7 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Bạn phải cùng kênh thoại với bot để sử dụng câu lệnh này!**"
         );
       let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
       if (!CheckNode || !CheckNode.connected) {
@@ -361,7 +361,7 @@ module.exports = {
               SongAddedEmbed.setDescription(`[${track.title}](${track.uri})`);
               SongAddedEmbed.addField("Author", track.author, true);
               SongAddedEmbed.addField(
-                "Duration",
+                "Thời lượng",
                 `\`${prettyMilliseconds(track.duration, {
                   colonNotation: true,
                 })}\``,

@@ -169,15 +169,12 @@ What would you like to edit?
             prefix: prefix,
             DJ: GuildDB.DJ,
           });
-          client.sendTime(
-            interaction,
-            `The prefix has now been set to \`${prefix}\``
-          );
+          client.sendTime(interaction, `Tiền tố đã được đặt về \`${prefix}\``);
         } else {
           //has not prefix
           client.sendTime(
             interaction,
-            `The prefix of this server is \`${GuildDB.prefix}\``
+            `Tiền tố của server này hiện là \`${GuildDB.prefix}\``
           );
         }
       } else if (config === "djrole") {
@@ -195,17 +192,14 @@ What would you like to edit?
           });
           client.sendTime(
             interaction,
-            `Successfully changed the DJ role of this server to ${role.name}`
+            `Đã thay đổi role của DJ về ${role.name}`
           );
         } else {
           /**
            * @type {require("discord.js").Role}
            */
           let role = interaction.guild.roles.cache.get(GuildDB.DJ);
-          client.sendTime(
-            interaction,
-            `The DJ role of this server is ${role.name}`
-          );
+          client.sendTime(interaction, `Role của DJ hiện tại là ${role.name}`);
         }
       }
     },

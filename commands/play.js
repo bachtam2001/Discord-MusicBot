@@ -111,7 +111,7 @@ module.exports = {
             Searched.tracks[0].info.author,
             true
           );
-          //SongAddedEmbed.addField("Duration", `\`${prettyMilliseconds(Searched.tracks[0].length, { colonNotation: true })}\``, true);
+          //SongAddedEmbed.addField("Thời lượng", `\`${prettyMilliseconds(Searched.tracks[0].length, { colonNotation: true })}\``, true);
           if (player.queue.totalSize > 1)
             SongAddedEmbed.addField(
               "Vị trí trong hàng chờ",
@@ -217,7 +217,7 @@ module.exports = {
         value: "song",
         type: 3,
         required: true,
-        description: "Phát nhạc trong kênh thoại",
+        description: "Tên hoặc url của bài hát",
       },
     ],
     /**

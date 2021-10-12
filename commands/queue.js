@@ -148,7 +148,7 @@ module.exports = {
           )
           .addField("Được thêm bởi", `${player.queue.current.requester}`, true)
           .addField(
-            "Duration",
+            "Thời lượng",
             `${
               client.ProgressBar(
                 player.position,

@@ -108,7 +108,6 @@ class DiscordMusicBot extends Client {
 
     //because not worked lol ;-;
     const client = this;
-
     this.Lavasfy = new LavasfyClient(
       {
         clientID: this.botconfig.Spotify.ClientID,
@@ -128,7 +127,6 @@ class DiscordMusicBot extends Client {
         },
       ]
     );
-
     this.Manager = new Manager({
       nodes: [
         {
@@ -155,12 +153,12 @@ class DiscordMusicBot extends Client {
       .on("trackStart", async (player, track) => {
         this.SongsPlayed++;
         let TrackStartedEmbed = new MessageEmbed()
-          .setAuthor(`Now playing ♪`, this.botconfig.IconURL)
+          .setAuthor(`Đang phát  ♪`, this.botconfig.IconURL)
           .setThumbnail(player.queue.current.displayThumbnail())
           .setDescription(`[${track.title}](${track.uri})`)
-          .addField("Requested by", `${track.requester}`, true)
+          .addField("Được thêm bởi", `${track.requester}`, true)
           .addField(
-            "Duration",
+            "Thời lượng",
             `\`${prettyMilliseconds(track.duration, {
               colonNotation: true,
             })}\``,

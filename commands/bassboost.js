@@ -27,12 +27,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Hiện đang không phát nhạc...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **Bạn phải trong một kênh thoại để sử dụng câu lệnh này!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -40,7 +40,7 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Bạn phải cùng kênh thoại với bot để sử dụng câu lệnh này!**"
       );
 
     if (!args[0])
@@ -97,12 +97,12 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Hiện đang không phát nhạc...**"
         );
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Bạn phải trong một kênh thoại để sử dụng câu lệnh này.**"
         );
       if (
         guild.me.voice.channel &&
@@ -110,7 +110,7 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Bạn phải cùng kênh thoại với bot để sử dụng câu lệnh này!**"
         );
       if (!args)
         return client.sendTime(

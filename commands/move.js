@@ -22,7 +22,7 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Hiện đang không phát nhạc...**"
       );
     if (!args[0] || !args[1])
       return client.sendTime(
@@ -64,14 +64,14 @@ module.exports = {
   SlashCommand: {
     options: [
       {
-        name: "vị trí bài hát",
+        name: "track",
         value: "track",
         type: 4,
         required: true,
         description: "Vị trí bài hát muốn chuyển.",
       },
       {
-        name: "vị trí muốn chuyển đến",
+        name: "position",
         value: "track2",
         type: 4,
         required: true,
